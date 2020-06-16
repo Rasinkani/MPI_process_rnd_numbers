@@ -43,7 +43,7 @@ int main(int argc, char** argv) {
 			//}
 		//}
 		MPI_Send(rnd_num, 512, MPI_INT, 1, 1, MPI_COMM_WORLD);
-		MPI_Send(rnd_num, 512, MPI_INT, 2, 2, MPI_COMM_WORLD);
+		//MPI_Send(rnd_num, 512, MPI_INT, 2, 2, MPI_COMM_WORLD);
 	} else if(my_rank==1){
 		printf("loops %d, rank %d \n", num_loop, my_rank);
 	//} else {
@@ -60,13 +60,14 @@ int main(int argc, char** argv) {
 			}
 		//}
 			printf("\n ");
-	} else if (my_rank == 2) {
+	} 
+	/*else if (my_rank == 2) {
 		printf("loops %d, rank %d \n", num_loop, my_rank);
 		MPI_Recv(rnd_num, 512, MPI_INT, 0, 2, MPI_COMM_WORLD, &status);
 		for (j = num_loop-6; j < num_loop; j++) {
 			printf("%d, ", rnd_num[j]);
 		}
 		printf("\n ");
-	}
+	}*/
 	MPI_Finalize();
 }
